@@ -57,6 +57,7 @@ public class Frame extends JFrame {
 
         s.addMouseListener(new MouseListener() {
             @Override
+            //Remove/add if clicked
             public void mouseClicked(MouseEvent e) {
                 int xCoor = e.getX()/Screen.TILESIZE;
                 int yCoor = e.getY()/Screen.TILESIZE;
@@ -96,6 +97,7 @@ public class Frame extends JFrame {
 
         s.addMouseMotionListener(new MouseMotionListener() {
             @Override
+            //Drag add
             public void mouseDragged(MouseEvent e) {
                 int counter = 0;
                 counter++;
@@ -119,8 +121,10 @@ public class Frame extends JFrame {
             }
         });
 
+        //Set up window
         JPanel bottom = new JPanel();
         bottom.setPreferredSize(new Dimension(400, 40));
+        //Buttons set to the bottom
         bottom.add(start);
         bottom.add(stop);
         bottom.add(reset);
@@ -128,8 +132,8 @@ public class Frame extends JFrame {
         bottom.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 3, isAlwaysOnTop()));
 
         add(bottom, BorderLayout.SOUTH);
+        //add screen to window
         add(s);
-
 
         pack();
 

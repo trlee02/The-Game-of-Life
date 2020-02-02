@@ -8,8 +8,11 @@ import static javax.swing.BorderFactory.createLineBorder;
 
 public class Screen extends JPanel implements Runnable{
 
+    //Height and width in pixels of the window
     public static final int WIDTH = 800, HEIGHT = 600;
+    //Size of tiles
     public static final int TILESIZE = 10;
+
     public Thread thread;
     public boolean running = false;
     public int[][] cells = new int[HEIGHT/TILESIZE][WIDTH/TILESIZE];
@@ -50,19 +53,6 @@ public class Screen extends JPanel implements Runnable{
                             end[i][j] = 1;
                         }
                     }
-                    /*else
-                    {
-                        int surroundingCells = surround(cells, 0 + (HEIGHT/TILESIZE - 1), 0 + (WIDTH/TILESIZE - 1));
-                        if (surroundingCells < 2 || surroundingCells > 3) {
-                            end[0 + (HEIGHT/TILESIZE - i)][0 + (WIDTH/TILESIZE - j)] = 0;
-                        } else if (surroundingCells == 3) {
-                            end[0 + (HEIGHT/TILESIZE - i)][0 + (WIDTH/TILESIZE - j)] = 1;
-                        }
-                        else if(surroundingCells == 2 && cells[i][j] == 1)
-                        {
-                            end[0 + (HEIGHT/TILESIZE - i)][0 + (WIDTH/TILESIZE - j)] = 1;
-                        }
-                    }*/
                 }
             }
 
@@ -110,6 +100,7 @@ public class Screen extends JPanel implements Runnable{
         g.setColor(Color.BLACK);
         g.fillRect(0,0,WIDTH, HEIGHT);
 
+        //Colour the status of the cells
         for(int i = 0; i < HEIGHT/TILESIZE; i++)
         {
             for(int j = 0; j < WIDTH/TILESIZE; j++)
@@ -128,6 +119,7 @@ public class Screen extends JPanel implements Runnable{
             }
         }
 
+        //Draw Grid
         for(int i = 0; i < WIDTH/TILESIZE; i++)
         {
             g.setColor(Color.DARK_GRAY);
